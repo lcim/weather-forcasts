@@ -1,0 +1,130 @@
+<!-- include header -->
+<%- include('partials/header.ejs') %> 
+<main class="mt-4 h-screen w-screen flex flex-col items-center justify-center content-center">
+<h1 class="bg-gradient-to-r from-orange-500 via-lime-300 to-red-500 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color inline-block px-4 py-2 text-2xl sm:w-100 font-semibold">Select a town from the dropdown to view the forecast
+</h1>
+<!-- Form to select a geographical location -->
+<form action="/" id="form" class=" mt-4" method="POST">
+    <select name="town" class="rounded-lg h-8 w-36 bg-sky-100 text-blue-600 font-semibold px-2" id="town">
+        <option value="" data-display="Select">Random Town</option>
+        <option value="Arondizuogu">Arondizuogu</option>
+        <option value="Aba">Aba</option>
+        <option value="Owerri">Owerri</option>
+        <option value="Enugu">Enugu</option>
+        <option value="Onitsha">Onitsha</option>
+        <option value="Warri">Warri</option>
+        <option value="Port Harcourt">Port Harcourt</option>
+        <option value="Calabar">Calabar</option>
+        <option value="Gboko">Gboko</option>
+        <option value="Kano">Kano</option>
+        <option value="Lagos">Lagos</option>
+        <option value="Ontario">Ontario</option>
+        <option value="Minsk">Minsk</option>
+        <option value="Johannesburg">Johannesburg</option>
+        <option value="Cairo">Cairo</option>
+        <option value="Abuja">Abuja</option>
+        <option value="Accra">Accra</option>
+        <option value="Abidjan">Abidjan</option>
+        <option value="Tunis">Tunis</option>
+    </select>
+    <button class="btn btn- bg-sky-100 btn-outline btn-sm font-semibold text-lg text-blue-600" type="submit">Find</button
+</form>    
+<section class=" min-w-[14rem] w-[16rem] sm:max-w-[60rem] sm:w-96 rounded-lg p-2 my-4 mx-auto flex flex-col gap-2 bg-sky-200  text-blue-800 ">
+    <% if(currentWeather.current) {%>
+    <h2 class="font-semibold">The current weather forecast: </h2>
+    <!-- Display weather stats instantaneously -->
+    <!-- starting with town and date -->
+<h1><span class="font-bold text-lg"><%= town %></span> <%= "on " + currentWeather.current.time %>
+</h1>
+<!-- Then the weather stats -->
+<div class="flex flex-col justify-evenly gap-1  items-center">
+<h1 class="flex gap-x-2 w-10112  gap-y-8 py-2 items-center justify-between">
+    <% if(currentWeather.current.temperature_2m > 25.00) {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">temperature: </p><%= "🥵" %> <span class="font-bold flex items-center justify-center p-1 bg-lime-200 rounded-full h-16 w-16"><%= currentWeather.current.temperature_2m + " °C🌞" %></span> 
+    <% } else {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">temperature:  </p><%= "🤧" %>  <span class="font-bold flex items-center justify-center p-1 bg-lime-200 rounded-full h-16 w-16"><%= currentWeather.current.temperature_2m + " °C🥶" %></span> 
+    <% } %>
+</h1>
+<h1 class="flex gap-x-2 w-10112  gap-y-8 py-2 items-center justify-between">
+    <% if(currentWeather.current.rain > 0.00) {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">rain forecast</p><%="⛈️" %>
+    <span class="font-bold flex items-center justify-center p-1 bg-lime-200 rounded-full h-16 w-16"><%= currentWeather.current.rain + " mm🌧️" %></span> 
+    <% } else {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">rain forecast</p><%="🌈" %>
+    <span class="font-bold flex items-center justify-center p-1 bg-lime-200 rounded-full h-16 w-16"><%= currentWeather.current.rain + " mm🌧️" %></span>
+    <% } %>
+</h1>
+<h1 class="flex gap-x-2 w-10112  gap-y-8 py-2 items-center justify-between">
+    <% if(currentWeather.current.showers > 0.00) {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">rain showers</p><%= "☔" %>
+    <span class="font-bold flex items-center justify-center p-1 bg-lime-200 rounded-full h-16 w-16"><%= currentWeather.current.showers + " mm🌧️" %></span>
+    <% } else {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">rain showers</p><%= "🌂" %>
+    <span class="font-bold flex items-center justify-center p-1 bg-lime-200 rounded-full h-16 w-16"><%= currentWeather.current.showers + " mm🌧️" %></span>
+    <% } %>
+</h1>
+<h1 class="flex gap-x-2 w-10112  gap-y-8 py-2 items-center justify-between">
+    <% if(currentWeather.current.wind_speed_10m > 10.00) {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">wind speed</p><%= "🍃" %>
+    <span class="font-bold flex items-center justify-center p-1 bg-lime-200 rounded-full h-16 w-16"><%= currentWeather.current.wind_speed_10m + " km/h" %></span>
+    <% } else {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">wind speed</p><%= "🌬️" %>
+    <span class="font-bold flex items-center justify-center p-1 bg-lime-200 rounded-full h-16 w-16"><%= currentWeather.current.wind_speed_10m + " km/h" %></span>
+    <% } %>
+</h1></div>
+    <% }else{ %>
+<!-- ############################################### -->
+<h2 class=" min-w-[14rem] w-[16rem] sm:max-w-[60rem] sm:w-96 rounded-lg p-2 my-2 mx-auto flex flex-col gap-2  text-blue-800 text-lg font-semibold">The daily weather forecast: </h2>
+<!-- Display weather stats on daily basis -->
+<h1 class="font-bold text-lg"><%= town %> <%= "on " + currentWeather.daily.time[0] %></h1>
+<div class="flex flex-col justify-evenly gap-1  items-center">
+<div class="flex gap-x-2 w-11/12  gap-y-8 py-2 items-center justify-between">
+<!-- get the maximum from the array of daily max temperatures, compare it to 25 deg C and output -->
+    <% if(Math.max(...currentWeather.daily.apparent_temperature_max) > 25.00) {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">max temperature</p><%= "🌞" %>
+    <span class="font-bold flex items-center justify-center p-1 bg-yellow-300 rounded-full h-16 w-16"><%= Math.max(...currentWeather.daily.apparent_temperature_max) + " °C🥵" %></span>
+    <!-- haha -->
+    <% } else {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">max temperature</p><%= "🥶" %>
+    <span class="font-bold flex items-center justify-center p-1 bg-yellow-300 rounded-full h-16 w-16"><%= Math.max(...currentWeather.daily.apparent_temperature_max) + " °C🥶" %></span>
+    <!-- <%= "Daily max temperature: " +  Math.max(...currentWeather.daily.apparent_temperature_max) + " °C 🥶" %> -->
+    <% } %>
+    </div>
+<div class="flex gap-x-2 w-11/12  gap-y-8 py-2 items-center justify-between">
+    <!-- get the minimum from the array of daily min temperatures, compare it to 25 deg C and output -->
+    <% if(Math.min(currentWeather.daily.apparent_temperature_min) > 25.00) {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">min temperature</p><%= "🌞" %>
+    <span class="font-bold flex items-center justify-center p-1 bg-yellow-300 rounded-full h-16 w-16"><%= Math.max(...currentWeather.daily.apparent_temperature_min) + " °C🥵" %></span>
+    <% } else {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">min temperature</p><%= "🥶" %>
+    <span class="font-bold flex items-center justify-center p-1 bg-yellow-300 rounded-full h-16 w-16"><%= Math.max(...currentWeather.daily.apparent_temperature_min) + " °C🌨️" %></span>
+    <% } %>
+</div>
+<!-- get the maximum from the array of daily max rain, compare it to 0 and output -->
+<div class="flex gap-x-2 w-11/12  gap-y-8 py-2 items-center justify-between">
+    <% if(Math.max(...currentWeather.daily.rain_sum) > 0.00) {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">rain forecast</p><%= "🌧️" %>
+    <span class="font-bold flex items-center justify-center p-1 bg-yellow-300 rounded-full h-16 w-16"><%= Math.max(...currentWeather.daily.rain_sum) + " mm💦" %></span>
+    <% } else {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">rain forecast</p><%= "🌧️" %>
+    <span class="font-bold flex items-center justify-center p-1 bg-yellow-300 rounded-full h-16 w-16"><%= Math.max(...currentWeather.daily.rain_sum) + " 💐🌈" %></span>
+    <% } %>
+</div>
+<!-- get the maximum from the array of daily max showers, compare it to 0 and output -->
+
+<div class="flex gap-x-2 w-11/12  gap-y-8 py-2 items-center justify-between">
+    <% if(Math.max(...currentWeather.daily.showers_sum) > 0.00) {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">Daily showers</p><%= "🚿" %>
+    <span class="font-bold flex items-center justify-center p-1 bg-yellow-300 rounded-full h-16 w-16"><%= Math.max(...currentWeather.daily.showers_sum) + " mm☔" %></span>
+    <% } else {%>
+    <p class="bg-gradient-to-r from-sky-700 via-orange-700 to-purple-800 bg-clip-text text-transparent -webkit-background-clip moz-background-clip webkit-text-fill-color text-lg">Daily showers</p><%= "🚿" %>
+    <span class="font-bold flex items-center justify-center p-1 bg-yellow-300 rounded-full h-16 w-16"><%= Math.max(...currentWeather.daily.showers_sum) + " 🌂" %></span>
+    <% } %>
+</div>
+</div>
+    <% } %>
+    </div>
+</section>
+</main>
+<!-- include footer -->
+<%- include('partials/footer.ejs') %>

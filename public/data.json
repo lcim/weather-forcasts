@@ -1,0 +1,22 @@
+[
+    { "town": "Arondizuogu", "longitude": "5.8897", "latitude": "7.1629" },
+    { "town": "Aba", "longitude": "5.1216", "latitude": "7.3733" },
+    { "town": "Owerri", "longitude": "5.5096", "latitude": "7.0391" },
+    { "town": "Enugu", "longitude": "6.4483", "latitude": "7.5139" },
+    { "town": "Onitsha", "longitude": "6.1329", "latitude": "6.7924" },
+    { "town": "Warri", "longitude": "5.5494", "latitude": "5.7669" },
+    { "town": "Port Harcourt", "longitude": "4.8472", "latitude": "6.9746" },
+    { "town": "Calabar", "longitude": "4.9757", "latitude": "8.3417" },
+    { "town": "Gboko", "longitude": "7.3368", "latitude": "9.0018" },
+    { "town": "Kano", "longitude": "12.0022", "latitude": "8.5920" },
+    { "town": "Lagos", "longitude": "6.5244", "latitude": "3.3792" },
+    { "town": "Abuja", "longitude": "9.0765", "latitude": "7.3986" },
+    { "town": "Johannesburg", "longitude": "26.2041", "latitude": "28.0473" },
+    { "town": "Cairo", "longitude": "30.0444", "latitude": "31.2357" },
+    { "town": "Accra", "longitude": "5.6037", "latitude": "0.1870" },
+    { "town": "Abidjan", "longitude": "5.3600", "latitude": "4.0083" },
+    { "town": "Tunis", "longitude": "36.8065", "latitude": "10.1815" },
+    { "town": "Minsk", "longitude": "53.9006", "latitude": "27.5590" },
+    { "town": "Ontario", "longitude": "51.2538", "latitude": "85.3232" }
+]
+
