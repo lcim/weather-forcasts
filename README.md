@@ -3,6 +3,13 @@ A weather forcast app for some selected cities around the world - using, Node js
 
 # A video demonstration is shown herein:
 
+# Testing the app
+Download and extract the folder
+Open with your preferred code editor, I use vscode.
+CD into the root directory and run the following commands:
+# npm i 
+# nodemon ./index.js; npm run tailwind
+and your app should be up and running on local port 3000. Good luck and enjoy
 
 
 https://github.com/lcim/weather-forcasts/assets/8688347/43cff92e-068e-4b74-a1dd-427c64ebffa8
