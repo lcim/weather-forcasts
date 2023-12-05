@@ -19,6 +19,7 @@ app.set("view engine", "ejs");
 
 // render homepage showing random location's data
 app.get("/", async (req, res) => {
+    
   const randomIndex = Math.floor(Math.random() * locationData.length);
   let longitude = locationData[randomIndex].longitude;
   let latitude = locationData[randomIndex].latitude;
