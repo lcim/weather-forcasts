@@ -3,7 +3,7 @@ import express from "express";
 import axios from "axios";
 import bodyParser from "body-parser";
 import locationData from "./public/data.json" assert { type: "json" };
-import Town from './views/town.js'
+// import Town from './views/town.js'
 // console.log(Town())
 
 // define port and create server
