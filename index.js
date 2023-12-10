@@ -19,7 +19,6 @@ app.set("view engine", "ejs");
 
 // render homepage showing random location's data
 app.get("/", async (req, res) => {
-    
   const randomIndex = Math.floor(Math.random() * locationData.length);
   let longitude = locationData[randomIndex].longitude;
   let latitude = locationData[randomIndex].latitude;
@@ -34,9 +33,11 @@ app.get("/", async (req, res) => {
   }
 });
 
-// bring in user selected city/town, call Town function to return the matching index
+// bring in user selected city/town and display its weather data
 app.post("/", async (req, res) => { 
-  const currentIndex = Town(req.body.town);
+  // find the index of the user-selected town in locationData. The function, Town that uses a switch is hereby discarded.
+  const currentIndex = locationData.findIndex(weatherObj => weatherObj.town === req.body.town);
+  // Get the longitude and latitude of the town
   const longitude = locationData[currentIndex].longitude;
   const latitude = locationData[currentIndex].latitude;
   try {
